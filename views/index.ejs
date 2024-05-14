@@ -1,23 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Public APIs</title>
-</head>
-
-<body>
-    <%- include('partials/header.html') %>
-    <section>main
-        <button onclick="window.location.href='/noAuth'">Joke</button>
-        <button onclick="window.location.href='/basicAuth'">Weather</button>
-        <button onclick="window.location.href='/apiKey'">Blockchain</button>
-        <button onclick="window.location.href='/bearerToken'">Cocktail</button>
-        <button onclick="window.location.href='/apiKey'">UV</button>
-        <button onclick="window.location.href='/bearerToken'">Custom</button>
-    </section>
-    <%- include('partials/footer.ejs') %>
-</body>
-
-</html>
+<%- include("partials/header.html") %>
+    <button onclick="window.location.href='/noAuth'">Joke</button>
+    <button onclick="window.location.href='/basicAuth'">Weather</button>
+    <button onclick="window.location.href='/apiKey'">Blockchain</button>
+    <button onclick="window.location.href='/bearerToken'">Cocktail</button>
+    <button onclick="window.location.href='/apiKey'">UV</button>
+    <button onclick="window.location.href='/bearerToken'">Custom</button>
+    <%- include("partials/footer.ejs") %>
