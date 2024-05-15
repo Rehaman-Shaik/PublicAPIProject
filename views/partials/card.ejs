@@ -1,11 +1,18 @@
+<h1><%= type %></h1>
 <div class="card">
     <div class="container">
         <% if (locals.setup) { %>
-            <p id="bold"><%= setup %></p>
+            <p class="bold"><%= setup %></p>
             <p><%= delivery %></p>
         <% } %>
         <% if (locals.singlepart) { %>
             <p><%= singlepart %></p>
+        <% } %>
+        <% if (locals.data) { %>
+            <p class="bold"><%= data.city %></p>
+            <p>Temperature: <%= data.temp %> °C</p>
+            <p>Wind: <%= data.wind.speed %> metre/sec</p>
+            <p>Humidity: <%= data.main.humidity %> %</p>
         <% } %>
     </div>
 </div>
