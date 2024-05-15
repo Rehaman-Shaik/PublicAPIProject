@@ -1,0 +1,11 @@
+<div class="card">
+    <div class="container">
+        <% if (locals.setup) { %>
+            <p id="bold"><%= setup %></p>
+            <p><%= delivery %></p>
+        <% } %>
+        <% if (locals.singlepart) { %>
+            <p><%= singlepart %></p>
+        <% } %>
+    </div>
+</div>
