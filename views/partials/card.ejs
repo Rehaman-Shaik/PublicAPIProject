@@ -14,5 +14,9 @@
             <p>Wind: <%= data.wind.speed %> metre/sec</p>
             <p>Humidity: <%= data.main.humidity %> %</p>
         <% } %>
+        <% if (locals.token) { %>
+            <p class="bold"><%= token %></p>
+            <p>Price $<%= price %></p>
+        <% } %>
     </div>
 </div>
