@@ -1,3 +1,4 @@
+import dotenv from 'dotenv';
 import express from "express";
 import axios from "axios";
 
@@ -5,6 +6,8 @@ import axios from "axios";
 const app = express();
 let port = 3000;
 app.use(express.static("public"))
+dotenv.config();
+const apiKey = `${process.env.WEATHER_API_KEY}`;
 
 
 app.listen(port, () => {
@@ -37,7 +40,7 @@ app.get('/jokes_api', async (req, res) => {
 
 
 app.get("/weather_api", async (req, res) => {
-    let response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${12.994147}&lon=${77.699434}&appid=${"541c962a9d121f175c3013075c3c54e4"}`)
+    let response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${12.994147}&lon=${77.699434}&appid=${apiKey}`)
     let temp = response.data.main.temp - 273
     let data = {
         city: response.data.name,
@@ -68,4 +71,4 @@ app.get("/blockchain_api", async (req, res) => {
         token: "Bitcoin",
         price:"60000"
     })
-})
+}) 
