@@ -18,5 +18,14 @@
             <p class="bold"><%= token %></p>
             <p>Price $<%= price %></p>
         <% } %>
+        <% if (locals.name) { %>
+            <p class="bold"><%= name %></p>
+            <% } %>
     </div>
 </div>
+<% if (locals.name) { %>
+    <div class="container2">
+    <p>Instructions: <%= instructions %></p>
+    <img src="<%= img %>" alt="">
+    </div>
+<% } %>

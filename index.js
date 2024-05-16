@@ -24,7 +24,7 @@ app.get('/jokes_api', async (req, res) => {
     if (response.data.type == "twopart") {
         let setup = response.data.setup
         res.render("api.ejs", {
-            type: "Jokes",
+            type: "Joke of the Day",
             setup: setup,
             delivery: response.data.delivery
         })
@@ -32,7 +32,7 @@ app.get('/jokes_api', async (req, res) => {
     if (response.data.type === "single") {
         let singlepart = response.data.joke
         res.render("api.ejs", {
-            type: "Jokes",
+            type: "Joke of the Day",
             singlepart: singlepart
         })
     }
@@ -49,7 +49,7 @@ app.get("/weather_api", async (req, res) => {
         temp: Math.floor(temp)
     }
     res.render("api.ejs", {
-        type: "Weather",
+        type: "Today's Weather",
         data: data
     })
 })
@@ -72,3 +72,17 @@ app.get("/blockchain_api", async (req, res) => {
         price:"60000"
     })
 }) 
+
+
+app.get("/cocktail_api", async (req,res)=>{
+    let response = await axios.get("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita")
+    res.render("api.ejs", {
+        type: "Drink of the Day",
+        name:response.data.drinks[0].strDrink,
+        instructions:response.data.drinks[1].strInstructions,
+        img:response.data.drinks[2].strDrinkThumb,
+        ingredient1:response.data.drinks[3].strIngredient1,
+        ingredient2:response.data.drinks[4].strIngredient2,
+        ingredient3:response.data.drinks[5].strIngredient3
+    })
+})
